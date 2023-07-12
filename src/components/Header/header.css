@@ -1,0 +1,32 @@
+.header-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #f2f2f2;
+    padding: 10px 20px;
+    width: 78rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  
+.header-title {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-right: auto;
+}
+
+.header-title h2 {
+  margin-right: 10px;
+}
+
+.header-icons {
+  display: flex;
+  align-items: center;
+}
+
+.header-icons svg {
+  margin-left: 10px;
+  font-size: 25px;
+}
