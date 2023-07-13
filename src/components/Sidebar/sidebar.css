@@ -1,6 +1,11 @@
 .sidebar-container{
     margin-top: 0px;
-    border: 1px solid black;
-    width: 230px;
+    width: 246px;
     height: 100vh;
+background-color: #001529;
+}
+
+.sidebar-logo{
+    width: 246px;
+    height: 127px;
 }

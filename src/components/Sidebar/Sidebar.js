@@ -1,13 +1,15 @@
 import './sidebar.css';
 import React, { useState } from 'react';
 import {
-  AppstoreOutlined,
-  CalendarOutlined,
   LinkOutlined,
-  MailOutlined,
   SettingOutlined,
+  
 } from '@ant-design/icons';
-import { Divider, Menu, Switch } from 'antd';
+import {BiSolidUserCircle,BiSolidBookBookmark} from 'react-icons/bi'
+import {MdAdminPanelSettings,MdNotifications,MdOutlineSecurity} from 'react-icons/md'
+import {PiUsersLight,PiEqualizer,PiExamFill} from 'react-icons/pi'
+
+import {  Menu } from 'antd';
 function getItem(label, key, icon, children) {
   return {
     key,
@@ -17,22 +19,32 @@ function getItem(label, key, icon, children) {
   };
 }
 const items = [
-  getItem('Navigation One', '1', <MailOutlined />),
-  getItem('Navigation Two', '2', <CalendarOutlined />),
-  getItem('Navigation Two', 'sub1', <AppstoreOutlined />, [
+  getItem('Yönetici Adı', 1 ,  <BiSolidUserCircle  />),
+  getItem('Kullanıcı Paneli', '2', <MdAdminPanelSettings />),
+  getItem('Kullanıcılar ', 'sub1', <PiUsersLight />, [
     getItem('Option 3', '3'),
     getItem('Option 4', '4'),
     getItem('Submenu', 'sub1-2', null, [
       getItem('Option 5', '5'),
       getItem('Option 6', '6'),
+
     ]),
   ]),
-  getItem('Navigation Three', 'sub2', <SettingOutlined />, [
+  getItem('Gruplar', 5 ,  <PiEqualizer  />),
+  getItem('Dersler', 'sub2', <BiSolidBookBookmark />, [
     getItem('Option 7', '7'),
     getItem('Option 8', '8'),
     getItem('Option 9', '9'),
     getItem('Option 10', '10'),
   ]),
+  getItem('Sınavlar', 'sub2', <PiExamFill />, [
+    getItem('Option 7', '7'),
+    getItem('Option 8', '8'),
+    getItem('Option 9', '9'),
+    getItem('Option 10', '10'),
+  ]),
+  getItem('Bildirimler', 14 ,  <MdNotifications  />),
+  getItem('Güvenlik', 13,  <MdOutlineSecurity  />),
   getItem(
     <a href='https://ant.design' target='_blank' rel='noopener noreferrer'>
       Ant Design
@@ -44,13 +56,8 @@ const items = [
 
 function Sidebar() {
   const [mode, setMode] = useState('inline');
-  const [theme, setTheme] = useState('light');
-  const changeMode = (value) => {
-    setMode(value ? 'vertical' : 'inline');
-  };
-  const changeTheme = (value) => {
-    setTheme(value ? 'dark' : 'light');
-  };
+  const [theme, setTheme] = useState('dark');
+ 
 
   return (
     <div className='sidebar-container'>
@@ -60,14 +67,12 @@ function Sidebar() {
         alt='logo'
       />
       <div className='sidebar-links'>
-        <Switch onChange={changeMode} /> Change Mode
-        <Divider type='vertical' />
-        <Switch onChange={changeTheme} /> Change Style
+      
         <br />
         <br />
         <Menu
           style={{
-            width: 256,
+            width: 230,
           }}
           defaultSelectedKeys={['1']}
           defaultOpenKeys={['sub1']}
